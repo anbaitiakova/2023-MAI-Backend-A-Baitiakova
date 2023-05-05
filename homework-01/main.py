@@ -1,9 +1,9 @@
 import LRUCache
 
 cache = LRUCache.LRUCache(100)
-cache.set('Jesse', 'Pinkman')
-cache.set('Walter', 'White')
-cache.set('Jesse', 'James')
-cache.get('Jesse') # вернёт 'James'
-cache.rem('Walter')
-cache.get('Walter') # вернёт ''
+print(cache.set('Jesse', 'Pinkman'))
+print(cache.set('Walter', 'White'))
+print(cache.set('Jesse', 'James'))
+print(cache.get('Jesse')) # вернёт 'James'
+print(cache.rem('Walter'))
+print(cache.get('Walter')) # вернёт ''
