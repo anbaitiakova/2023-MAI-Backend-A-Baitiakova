@@ -52,14 +52,11 @@ class CustomerInfoView(View):
         return JsonResponse({'error': 'Invalid request method'}, status=405)
 
 class SalesView(View):
-    def get(self, request, customer_id):
-        return JsonResponse({'ok': 'get sale with id {} stub'.format(customer_id)}, status=200)
+    def get(self, request):
+        return JsonResponse({'ok': 'get sale stub'}, status=200)
 
-    def put(self, request, customer_id):
-        return JsonResponse({'ok': 'put sale with id {} stub'.format(customer_id)}, status=200)
-
-    def delete(self, request, customer_id):
-        return JsonResponse({'ok': 'delete sale with id {} stub'.format(customer_id)}, status=200)
+    def post(self, request):
+        return JsonResponse({'ok': 'put sale stub'}, status=200)
 
     def http_method_not_allowed(self, request, *args, **kwargs):
         return JsonResponse({'error': 'Invalid request method'}, status=405)
