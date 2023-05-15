@@ -6,6 +6,26 @@ from bookShop.models import Book, Author, City, Customer, Sale
 import json
 
 
+class SearchView(View):
+    def get(self, request):
+        title = request.GET.get('title')
+        author_name = request.GET.get('author_name')
+
+        if not title and not author_name:
+            return JsonResponse({'error': 'No search parameters provided'}, status=400)
+
+        books = Book.objects.all()
+
+        if title:
+            books = books.filter(title__icontains=title)
+
+        if author_name:
+            books = books.filter(author__name__icontains=author_name)
+
+        results = [{'title': book.title, 'author': book.author.name} for book in books]
+
+        return JsonResponse({'results': results}, status=200)
+
 class BooksView(View):
     def get(self, request):
         books = Book.objects.all()

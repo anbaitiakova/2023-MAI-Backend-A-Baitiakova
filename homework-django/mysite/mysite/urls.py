@@ -22,6 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('books/', views.BooksView.as_view(), name='books'),
     path('books/<int:book_id>/', views.BookInfoView.as_view(), name='book_info'),
+    path('books/search/', views.SearchView.as_view(), name='book_search'),
     path('customers/', views.CustomersView.as_view(), name='customers'),
     path('customers/<int:customer_id>/', views.CustomerInfoView.as_view(), name='customer_info'),
     path('sales/', views.SalesView.as_view(), name='sales'),
